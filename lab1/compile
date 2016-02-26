@@ -1,0 +1,3 @@
+as86 -o bs.o bs.s
+bcc -c -ansi bc.c
+ld86 -d bs.o bc.o /usr/lib/bcc/libc.a

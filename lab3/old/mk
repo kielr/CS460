@@ -1,0 +1,15 @@
+mk script to compile-link MTX kernel image
+
+VFD=FDimage    # donwload FDimage file from samples/LAB3
+
+as86 -o ts.o ts.s
+bcc  -c -ansi t.c
+ld86 -d -o mtx ts.o t.o mtxlib /usr/lib/bcc/libc.a
+
+mount -o loop $VFD /mnt
+cp mtx /mnt/boot
+umount /mnt
+
+(cd USER; mku u1)
+
+echo done

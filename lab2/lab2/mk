@@ -1,0 +1,15 @@
+echo compiling
+   as86 -o  ts.o  ts.s
+   bcc  -c -ansi  t.c
+echo linking
+   ld86 -d ts.o t.o mtxlib /usr/lib/bcc/libc.a
+
+echo cp a.out to mtximage/boot/mtx
+   mount -o loop mtximage /mnt
+   cp a.out /mnt/boot/mtx
+   umount /mnt
+echo done
+
+#  Use YOUR MTX booter of LAB#1 to boot up MTX
+
+

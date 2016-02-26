@@ -1,0 +1,1 @@
+dd if=a.out of=mtximage bs=1024 count=1 conv=notrunc
