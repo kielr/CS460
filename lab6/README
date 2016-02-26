@@ -1,0 +1,37 @@
+            MTX6.pipe0 demonstrates pipe
+
+1. MTX.pipe0 is based on MTX5.1. For simplicity, vfork() and threads are not
+   included. Modifications to MTX5.1 are 
+
+   type.h : added OFT, PIPE types; PROC.fd[NFD]: file descriptors
+   fork() : copy file descriptors to child
+   kexit(): close opend file descriptors
+
+2. When P1 runs in Umode, it dispalys a menu with PIPE COMMANDS
+       ******************** Menu ************************
+        ps  chname kmode switch  wait  exit  fork   exec
+        PIPE COMMANDS:   pipe    pfd   read  write  close 
+       **************************************************
+
+3. Pipe testing sequence:
+
+4. pipe  : syscall to create a pipe in kernel; 
+   pfd   : display running PROC's pipe descriptors
+
+6. fork  : fork a child process to share PIPE
+   pfd   : display pipe descriptors
+
+7. close : enter fd to close fd: e.g. PARENT AS WRITER: close 0
+8. switch: switch to child PROC;      pfd to see pipe descriptors
+9. close : close 1 (CHILD AS READER); pfd to see pipe descriptors
+------------------------------------------------------------------------
+10. read : enter fd and nbytes to read, e.g. 0 20 => will wait for data
+    (switch to pipe WRTIER)
+11. write: enter fd and text to write, e.g.  1 abcdefghijk => will write PSIZE
+                                             and wait for room => wakeup READER
+12. reader returns to Umode with data;
+    
+13. REPEAT the read/write cycles.
+
+14. if READER dies first: WRITER exit by BROKEN_PIPE error.
+-----------------------------------------------------------------------

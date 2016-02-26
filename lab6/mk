@@ -1,0 +1,15 @@
+VFD=FDimage   # change VFD to YOUR virtual fd
+
+as86 -o ts.o ts.s
+bcc  -c -ansi t.c
+ld86 -d -o mtx ts.o t.o mtxlib /usr/lib/bcc/libc.a  #2> /dev/null
+
+echo cp mtx to $VFD/boot/
+mount -o loop $VFD /mnt
+cp mtx /mnt/boot
+umount /mnt
+
+(cd USER; sh mku u1)
+
+rm *.o mtx
+echo done

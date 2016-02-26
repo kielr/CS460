@@ -1,0 +1,13 @@
+VFD=../FDimage
+
+echo ----------------- make $1 ---------------------
+bcc -c -ansi $1.c crt0.c
+as86 -o u.o u.s
+ld86 -o $1 u.o $1.o crt0.o ../mtxlib /usr/lib/bcc/libc.a
+
+mount -o loop $VFD /mnt
+cp $1 /mnt/bin
+umount /mnt
+
+rm $1
+echo done $1

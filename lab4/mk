@@ -1,0 +1,14 @@
+VFD=FDimage
+
+as86 -o ts.o ts.s
+bcc  -c -ansi t.c
+ld86 -d -o mtx ts.o t.o OBJ/forkexec.o OBJ/wait.o mtxlib /usr/lib/bcc/libc.a
+
+mount -o loop $VFD /mnt
+cp mtx /mnt/boot
+umount /mnt
+rm mtx
+
+(cd USER; sh mkallu)
+
+echo done
