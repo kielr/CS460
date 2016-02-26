@@ -1,0 +1,9 @@
+VFD=../mtximage
+
+# clear files in /bin first
+mount -o loop $VFD /mnt
+rm /mnt/bin/*
+umount /mnt
+
+sh mku u1
+sh mku u2
