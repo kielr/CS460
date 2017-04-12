@@ -1,5 +1,5 @@
 # Students of CS460
-If you found this repository because you are looking for solutions to 460 Labs, then you succeeded, and you're welcome to them. However, CS460 requires knowledge of what the code is actually doing to pass the interviews and if you are found lacking in such the professor will know and it won't look good for you. Knowing that, proceed with caution.
+If you found this repository because you are looking for solutions to 460 Labs, then you succeeded, and you're welcome to them. However, CS460 requires knowledge of what the code is actually doing to pass the interviews, and if you are found lacking in such, the professor will know and it won't look good for you. Knowing that, proceed with caution.
 
 # Copyright
 
